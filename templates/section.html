@@ -26,9 +26,11 @@
           {% endif %}
         </div>
         <div class="level-right">
+          {% if page.date %}
           <div class="level-item">
             <span class="post-date">{{ page.date | date(format="%Y-%m-%d") }}</span>
           </div>
+          {% endif %}
         </div>
       </nav>
       <div class="is-flex is-flex-direction-row">

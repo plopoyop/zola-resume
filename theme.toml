@@ -2,7 +2,7 @@ name = "resume"
 description = "A resume theme"
 license = "MIT"
 homepage = "https://github.com/alongwy/zola-resume"
-min_version = "0.11.0"
+min_version = "0.22.0"
 demo = "https://resume.alongwy.top"
 
 compile_sass = true

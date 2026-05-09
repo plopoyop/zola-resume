@@ -3,7 +3,7 @@ title = "Example"
 description = "Example"
 
 compile_sass = true
-generate_feed = true
+generate_feeds = true
 build_search_index = true
 taxonomies = [
   { name = "tags", feed = true },
