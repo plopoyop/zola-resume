@@ -1,0 +1,16 @@
+[
+    {
+        "school": "[Institut de Technologie de Harbin](https://hit.edu.cn)",
+        "degree": "Informatique et Technologies",
+        "major": "Algèbre linéaire, calcul à plusieurs variables, algorithmique",
+        "notes": "Licence d'ingénierie",
+        "range": "2016 - 2020"
+    },
+    {
+        "school": "[Institut de Technologie de Harbin](https://hit.edu.cn)",
+        "degree": "Informatique et Technologies",
+        "major": "Traitement automatique du langage naturel",
+        "notes": "Master d'ingénierie & Doctorat",
+        "range": "2020 - aujourd'hui"
+    }
+]

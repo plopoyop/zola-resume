@@ -5,8 +5,8 @@
 <section class="hero is-fullheight">
   <div class="hero-body">
     <div class="">
-      <h1 class="post-title">404: Page not found</h1>
-      <p class="lead">Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <a href={{ config.base_url }}>Head back home</a> to try finding it again.</p>
+      <h1 class="post-title">{{ trans(key="not_found_title", lang=lang) }}</h1>
+      <p class="lead">{{ trans(key="not_found_message", lang=lang) }} <a href={{ config.base_url }}>{{ trans(key="not_found_back", lang=lang) }}</a> {{ trans(key="not_found_retry", lang=lang) }}</p>
     </div>
   </div>
 </section>

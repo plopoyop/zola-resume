@@ -2,6 +2,7 @@ base_url = "https://resume.alongwy.top"
 compile_sass = true
 title = "Feng"
 description = "A clean resume theme"
+default_language = "en"
 generate_feeds = true
 build_search_index = true
 taxonomies = [
@@ -10,6 +11,69 @@ taxonomies = [
 
 [markdown]
 highlighting = { theme = "github-light" }
+
+[languages.fr]
+title = "Feng"
+description = "Un thème de CV épuré"
+generate_feeds = true
+build_search_index = true
+taxonomies = [
+  { name = "tags", feed = true },
+]
+
+[languages.en.translations]
+about = "ABOUT"
+skills = "SKILLS"
+projects = "PROJECTS"
+opensource = "OPEN SOURCE"
+publications = "PUBLICATIONS"
+experience = "EXPERIENCE"
+education = "EDUCATION"
+blog = "BLOG"
+projects_title = "Creations"
+opensource_title = "Open Source Contributions"
+publications_title = "Publications"
+blog_title = "blog"
+search = "search"
+search_title = "Search"
+read_more = "Read More"
+wait_more = "Wait! There's more.."
+certifications = "Certifications"
+socialization = "Socialization"
+bibtex = "Bibtex"
+link = "Link"
+tags = "Tags"
+not_found_title = "404: Page not found"
+not_found_message = "Sorry, we've misplaced that URL or it's pointing to something that doesn't exist."
+not_found_back = "Head back home"
+not_found_retry = "to try finding it again."
+
+[languages.fr.translations]
+about = "À PROPOS"
+skills = "COMPÉTENCES"
+projects = "PROJETS"
+opensource = "OPEN SOURCE"
+publications = "PUBLICATIONS"
+experience = "EXPÉRIENCE"
+education = "FORMATION"
+blog = "BLOG"
+projects_title = "Réalisations"
+opensource_title = "Contributions Open Source"
+publications_title = "Publications"
+blog_title = "blog"
+search = "rechercher"
+search_title = "Recherche"
+read_more = "Lire la suite"
+wait_more = "Et ce n'est pas tout..."
+certifications = "Certifications"
+socialization = "Réseaux sociaux"
+bibtex = "Bibtex"
+link = "Lien"
+tags = "Étiquettes"
+not_found_title = "404 : Page introuvable"
+not_found_message = "Désolé, cette URL est égarée ou pointe vers quelque chose qui n'existe pas."
+not_found_back = "Retournez à l'accueil"
+not_found_retry = "pour essayer de la retrouver."
 
 [extra]
 first_name = "Feng"

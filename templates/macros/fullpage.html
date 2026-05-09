@@ -1,34 +1,73 @@
-{% macro menu() %}
+{% macro menu() %} {% set home = get_url(path='@/_index.md', lang=lang) | safe
+%}
 <ul id="menu" class="menu-list">
-    
-{% if config.extra.show_about           %}
-<li data-menuanchor="about"><a href="{{ get_url(path='/#anchor_about') }}">ABOUT</a></li>   
-{% endif %}
-{% if config.extra.show_skills          %} 
-<li data-menuanchor="skills"><a href="{{ get_url(path='/#anchor_skills') }}">SKILLS</a></li>
-{% endif %}
-{% if config.extra.show_projects        %}
-<li data-menuanchor="projects"><a href="{{ get_url(path='/#anchor_projects') }}">PROJECTS</a></li>
-{% endif %}
-{% if config.extra.show_opensource      %} 
-<li data-menuanchor="opensource"><a href="{{ get_url(path='/#anchor_opensource') }}">OPEN SOURCE</a></li>
-{% endif %}
-{% if config.extra.show_publications    %}
-<li data-menuanchor="publications"><a href="{{ get_url(path='/#anchor_publications') }}">PUBLICATIONS</a></li>
-{% endif %}
-{% if config.extra.show_experience      %} 
-<li data-menuanchor="experience"><a href="{{ get_url(path='/#anchor_experience') }}">EXPERIENCE</a></li>
-{% endif %}
-{% if config.extra.show_education       %} 
-<li data-menuanchor="education"><a href="{{ get_url(path='/#anchor_education') }}">EDUCATION</a></li>
-{% endif %}
-{% if config.extra.show_blog            %} 
-<li data-menuanchor="blog"><a href="{{ get_url(path='/#anchor_blog') }}">BLOG</a></li>    
-{% endif %}
+    {% if config.extra.show_about %}
+    <li data-menuanchor="about">
+        <a href="{{ home | safe }}#anchor_about"
+            >{{ trans(key="about", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_skills %}
+    <li data-menuanchor="skills">
+        <a href="{{ home | safe }}#anchor_skills"
+            >{{ trans(key="skills", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_projects %}
+    <li data-menuanchor="projects">
+        <a href="{{ home | safe }}#anchor_projects"
+            >{{ trans(key="projects", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_opensource %}
+    <li data-menuanchor="opensource">
+        <a href="{{ home | safe }}#anchor_opensource"
+            >{{ trans(key="opensource", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_publications %}
+    <li data-menuanchor="publications">
+        <a href="{{ home | safe }}#anchor_publications"
+            >{{ trans(key="publications", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_experience %}
+    <li data-menuanchor="experience">
+        <a href="{{ home | safe }}#anchor_experience"
+            >{{ trans(key="experience", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_education %}
+    <li data-menuanchor="education">
+        <a href="{{ home | safe }}#anchor_education"
+            >{{ trans(key="education", lang=lang) }}</a
+        >
+    </li>
+    {% endif %} {% if config.extra.show_blog %}
+    <li data-menuanchor="blog">
+        <a href="{{ home | safe }}#anchor_blog"
+            >{{ trans(key="blog", lang=lang) }}</a
+        >
+    </li>
+    {% endif %}
 </ul>
 {% endmacro %}
 
-{% macro fullpage() %}
+{% macro language_switcher() %}
+<nav class="lang-switcher">
+  {% if lang == "en" %}
+  <span class="lang-switcher__item is-active">EN</span>
+  {% else %}
+  <a class="lang-switcher__item" href="{{ get_url(path='@/_index.md', lang='en') | safe }}">EN</a>
+  {% endif %}
+  <span class="lang-switcher__sep">·</span>
+  {% if lang == "fr" %}
+  <span class="lang-switcher__item is-active">FR</span>
+  {% else %}
+  <a class="lang-switcher__item" href="{{ get_url(path='@/_index.md', lang='fr') | safe }}">FR</a>
+  {% endif %}
+</nav>
+{% endmacro %} {% macro fullpage() %}
 <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/dist/fullpage.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullpage.js@3.1.2/vendors/scrolloverflow.min.js"></script>
 <script type="text/javascript">
@@ -46,16 +85,15 @@
             {% if config.extra.show_blog            %} 'anchor_blog',          {% endif %}
         ],
         afterResize: function( width, height ){
-		    if (width < 936) {
+      if (width < 936) {
                 fullpage_api.setAutoScrolling(false);
             } else {
                 fullpage_api.setAutoScrolling(true);
             }
-	    }
+     }
     });
     if (screen.width < 936){
         fullpages.setAutoScrolling(false);
     }
-
 </script>
 {% endmacro %}

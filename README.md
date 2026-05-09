@@ -7,8 +7,9 @@ Redesigned form [hugo resume](https://github.com/eddiewebb/hugo-resume).
 ## Features
 + This is basically a single-page website with auto-scrolling based on left-hand nav.
 + Dedicated project/publications pages allow more detail.
-+ Includes a client-side search at '/search'. 
++ Includes a client-side search at '/search'.
 + Includes an `/admin` endpoint that can allow authorized users to use a WYSIWYG editor and commit files back to markdown, but with a Wordpress/CMS like experience.
++ Multilingual support out of the box (English by default, French translation included). UI strings come from `[languages.<lang>.translations]` in `config.toml`; translated content is provided as `_index.<lang>.md` / `<page>.<lang>.md`, and translated data files as `data/<file>.<lang>.json` (with fallback to the default-language file when missing).
 
 ## Quick Start
 
@@ -116,6 +117,8 @@ Data files are used for simple content presented on the homepage.
 - [data/skills.json](https://github.com/AlongWY/zola-resume/blob/main/data/skills.json)
 - [data/experience.json](https://github.com/AlongWY/zola-resume/blob/main/data/experience.json)
 - [data/education.json](https://github.com/AlongWY/zola-resume/blob/main/data/education.json)
+
+For each translated language, you can drop a parallel file (e.g. `data/experience.fr.json`); the templates load the language-specific file when present and fall back to the default one otherwise.
 
 ### Projects/Opensource
 

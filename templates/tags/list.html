@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container is-fluid" style="min-height: 100vh;">
   <div class="is-flex is-flex-direction-column is-justify-content-center" style="min-height: 100vh;">
-    <h1>Tags</h1>
+    <h1>{{ trans(key="tags", lang=lang) }}</h1>
     {% if terms %}
     {% for term in terms %}
     <div class="card mb-5">

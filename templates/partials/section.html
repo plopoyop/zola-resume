@@ -1,7 +1,10 @@
 {% macro display(title, path, align="left", bibtex=false) %}
+{% if lang != config.default_language %}
+{% set path = path | replace(from="_index.md", to="_index." ~ lang ~ ".md") %}
+{% endif %}
 {% set section = get_section(path=path) %}
 <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;">
-  <h2><a href="{{ section.permalink }}">{{ title }}</a></h2>
+  <h2><a href="{{ section.permalink }}">{{ trans(key=title, lang=lang) | lower }}</a></h2>
   <div class="is-hidden-touch">
     {{ section.content | safe }}
   </div>
@@ -19,7 +22,7 @@
           <div class="level-item">
             <a role="button" data-target="copyTarget" aria-haspopup="true"
               onclick="show_bib('{{ get_url(path=page.extra.bibtex)}}')">
-              <span class="tag is-warning">Bibtex</span>
+              <span class="tag is-warning">{{ trans(key="bibtex", lang=lang) }}</span>
             </a>
           </div>
           {% endif %}
@@ -45,7 +48,7 @@
           </figure>
           {% endif %}
           {{ page.description | markdown() | safe }}
-          <a href="{{ page.permalink }}">Read More</a>
+          <a href="{{ page.permalink }}">{{ trans(key="read_more", lang=lang) }}</a>
         </div>
         {% endif %}
       </div>
@@ -63,7 +66,7 @@
     {% endfor %}
   </div>
   {% if remain %}
-  <h3><a href="{{ section.permalink }}">Wait! There's more..</a></h3>
+  <h3><a href="{{ section.permalink }}">{{ trans(key="wait_more", lang=lang) }}</a></h3>
   {% endif %}
 </div>
 {% endmacro %}

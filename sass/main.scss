@@ -133,3 +133,38 @@ a:hover, a:focus, a:active {
   }
 }
 
+.lang-switcher {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.lang-switcher__item {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.2rem;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.lang-switcher__item:hover,
+.lang-switcher__item:focus {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switcher__item.is-active {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: default;
+}
+
+.lang-switcher__sep {
+  color: rgba(255, 255, 255, 0.35);
+}
+

@@ -20,7 +20,7 @@
           <div class="level-item">
             <a role="button" data-target="copyTarget" aria-haspopup="true"
               onclick="show_bib('{{ get_url(path=page.extra.bibtex)}}')">
-              <span class="tag is-warning">Bibtex</span>
+              <span class="tag is-warning">{{ trans(key="bibtex", lang=lang) }}</span>
             </a>
           </div>
           {% endif %}
@@ -46,7 +46,7 @@
           </figure>
           {% endif %}
           {{ page.description | markdown() | safe }}
-          <a href="{{ page.permalink }}">Read More</a>
+          <a href="{{ page.permalink }}">{{ trans(key="read_more", lang=lang) }}</a>
         </div>
         {% endif %}
       </div>

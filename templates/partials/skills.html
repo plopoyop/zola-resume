@@ -1,7 +1,12 @@
 {% macro display() %}
+{% set lang_data = load_data(path="data/skills." ~ lang ~ ".json", required=false) %}
+{% if lang_data %}
+{% set data = lang_data %}
+{% else %}
 {% set data = load_data(path="data/skills.json") %}
+{% endif %}
 <div class="is-flex is-flex-direction-column is-justify-content-center" style="height: 100%;">
-  <h2>skills</h2>
+  <h2>{{ trans(key="skills", lang=lang) | lower }}</h2>
   <div style="overflow: auto;">
     {% for group in data %}
     <div style="padding-bottom: 1rem;">

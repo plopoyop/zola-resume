@@ -3,7 +3,7 @@
 {% import 'macros/bibtex.html' as macros_bibtex -%}
 {% import 'macros/fullpage.html' as macros_fullpage -%}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ lang }}">
 
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,7 @@
   <aside id="sidebar" class="menu is-hidden-touch">
     {{ macros_head::avatar() }}
     {{ macros_fullpage::menu()}}
+    {{ macros_fullpage::language_switcher() }}
   </aside>
   {{ macros_bibtex::modal() }}
   <div id="content">

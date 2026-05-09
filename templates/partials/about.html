@@ -1,5 +1,12 @@
 {% macro display() %}
+{% if lang == config.default_language %}
 {% set section = get_section(path="_index.md") %}
+{% else %}
+{% set section = get_section(path="_index." ~ lang ~ ".md") %}
+{% endif %}
+{% set certif_path = "data/certifications.json" %}
+{% set certif_lang_path = "data/certifications." ~ lang ~ ".json" %}
+{% set certif_lang_data = load_data(path=certif_lang_path, required=false) %}
 <div class="is-flex is-flex-direction-column" style="height: 100%;">
   <div class="flex: 1;">
     <h1>{{ config.extra.first_name }} <span class="text-primary">{{ config.extra.last_name }}</span></h1>
@@ -12,8 +19,12 @@
       {{ section.content | safe }}
     </div>
     <div class="is-hidden-touch">
-      <h3>Certifications</h3>
-      {% set data = load_data(path="data/certifications.json") %}
+      <h3>{{ trans(key="certifications", lang=lang) }}</h3>
+      {% if certif_lang_data %}
+      {% set data = certif_lang_data %}
+      {% else %}
+      {% set data = load_data(path=certif_path) %}
+      {% endif %}
       {% for item in data %}
       <a href="{{ item.proof }}" data-toggle="tooltip" title="{{ item.name }}" data-offset="0,10" rel="me">
         <figure class="image is-64x64">
@@ -25,8 +36,13 @@
         </figure>
       </a>
       {% endfor %}
-      <h3>Socialization</h3>
+      <h3>{{ trans(key="socialization", lang=lang) }}</h3>
+      {% set social_lang_data = load_data(path="data/social." ~ lang ~ ".json", required=false) %}
+      {% if social_lang_data %}
+      {% set data = social_lang_data %}
+      {% else %}
       {% set data = load_data(path="data/social.json") %}
+      {% endif %}
       {% for item in data %}
       <a href="{% if item.link is starting_with('http') %}{{ item.link }}{% else %}{{ get_url(path=item.link) }}{% endif %}" style="font-size: 1.75rem;" data-toggle="tooltip" title="{{ item.name }}"
         data-offset="0,10" rel="me">
