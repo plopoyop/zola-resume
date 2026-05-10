@@ -11,16 +11,29 @@
     {% for group in data %}
     <div style="padding-bottom: 1rem;">
       <h3 style="color: #868e96;">{{ group.grouping }}</h3>
-      <div>
+      <div class="skills-grid">
         {% for skill in group.skills %}
+        {# Normalise the three possible shapes (string / object without level / object with level) #}
         {% if "name" in skill %}
-        {% if "icon" in skill %}
-        <span class="icon"><i class="devicon-{{  skill.icon | lower }}-plain"></i></span>{{ skill.name }}
+          {% set skill_name = skill.name %}
+          {% if "icon" in skill %}{% set skill_icon = skill.icon %}{% else %}{% set skill_icon = skill.name %}{% endif %}
+          {% if "level" in skill %}{% set skill_level = skill.level %}{% else %}{% set skill_level = 0 %}{% endif %}
         {% else %}
-        <span class="icon"><i class="devicon-{{  skill.name | lower }}-plain"></i></span>{{ skill.name }}
+          {% set skill_name = skill %}
+          {% set skill_icon = skill %}
+          {% set skill_level = 0 %}
         {% endif %}
+        {% if skill_level > 0 %}
+        <div class="skill-row">
+          <span class="skill-row__label">
+            <span class="icon"><i class="devicon-{{ skill_icon | lower }}-plain"></i></span>{{ skill_name }}
+          </span>
+          <span class="skill-row__bar" role="progressbar" aria-valuenow="{{ skill_level }}" aria-valuemin="0" aria-valuemax="100">
+            <span class="skill-row__fill" style="width: {{ skill_level }}%;"></span>
+          </span>
+        </div>
         {% else %}
-        <span class="icon"><i class="devicon-{{  skill | lower }}-plain"></i></span>{{ skill }}
+        <span class="icon"><i class="devicon-{{ skill_icon | lower }}-plain"></i></span>{{ skill_name }}
         {% endif %}
         {% endfor %}
       </div>

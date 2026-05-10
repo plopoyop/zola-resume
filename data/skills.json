@@ -2,14 +2,14 @@
   {
     "grouping": "Languages, Operating Systems & Tools",
     "skills": [
-      "Cplusplus",
-      "Rust",
-      "Java",
-      "Python",
-      "git",
-      "linux",
-      "bash",
-      "javascript"
+      { "name": "Cplusplus", "level": 90 },
+      { "name": "Rust", "level": 50 },
+      { "name": "Java", "level": 30 },
+      { "name": "Python", "level": 70 },
+      { "name": "git" },
+      { "name": "linux" },
+      { "name": "bash" },
+      { "name": "javascript" }
     ]
   },
   {
