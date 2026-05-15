@@ -52,6 +52,45 @@
           </span>
         </a>
         {% endfor %}
+      {% if config.extra.show_languages %}
+      <h3>{{ trans(key="languages", lang=lang) }}</h3>
+      {% set lang_languages_data = load_data(path="data/languages." ~ lang ~ ".json", required=false) %}
+      {% if lang_languages_data %}
+      {% set data = lang_languages_data %}
+      {% else %}
+      {% set data = load_data(path="data/languages.json") %}
+      {% endif %}
+      <ul class="about-languages">
+        {% for item in data %}
+        <li>
+          <span class="about-languages__idiom">{{ item.idiom }}</span>
+          <span class="about-languages__level">{{ item.level }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      {% if config.extra.show_interests %}
+      <h3>{{ trans(key="interests", lang=lang) }}</h3>
+      {% set lang_interests_data = load_data(path="data/interests." ~ lang ~ ".json", required=false) %}
+      {% if lang_interests_data %}
+      {% set data = lang_interests_data %}
+      {% else %}
+      {% set data = load_data(path="data/interests.json") %}
+      {% endif %}
+      <div class="interests-grid">
+        {% for entry in data %}
+        {% if entry is string %}
+        <span class="interests-grid__item">{{ entry | markdown(inline=true) | safe }}</span>
+        {% else %}
+        {% if entry.link %}
+        <a class="interests-grid__item" href="{{ entry.link }}">{{ entry.item | markdown(inline=true) | safe }}</a>
+        {% else %}
+        <span class="interests-grid__item">{{ entry.item | markdown(inline=true) | safe }}</span>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
   </div>
 </div>
