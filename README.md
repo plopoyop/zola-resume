@@ -78,14 +78,29 @@ backend:
 ```
 
 ### Step 4: Add new content
-You can copy the content from the theme directory to your project:
+The theme ships an `content.example/` directory with the minimal section
+skeleton expected by the templates (`_index.md` for `/`, `projects/`,
+`opensource/`, `publications/`, `blog/`, plus the `search.md` page) in both
+English and French. Copy it as a starting point, along with the data files:
 
 ```
 cp -r themes/zola-resume/data .
-cp -r themes/zola-resume/content .
+cp -r themes/zola-resume/content.example content
 ```
 
-You can modify or add new posts in the content/blog, content/projects or other content directories as needed.
+Then customise: edit `content/_index.md` for your bio, drop new posts under
+`content/projects/`, `content/blog/`, etc.
+
+If you don't need a section, set `show_<name> = false` under `[extra]` in
+`config.toml` and the matching `content/<name>/` directory becomes optional.
+
+### Translations
+Every `trans()` key the theme uses is listed in `config.toml.example` under
+`[languages.en.translations]` (and `[languages.fr.translations]` for the
+shipped French translation). Keep these blocks in your `config.toml` and
+adjust the values to your liking. To add another language, copy one of the
+blocks and translate the values; Zola will fail the build if a key is
+missing.
 
 ### Step 5: Run the project
 Just run zola serve in the root path of the project:
@@ -119,6 +134,55 @@ Data files are used for simple content presented on the homepage.
 - [data/education.json](https://github.com/AlongWY/zola-resume/blob/main/data/education.json)
 
 For each translated language, you can drop a parallel file (e.g. `data/experience.fr.json`); the templates load the language-specific file when present and fall back to the default one otherwise.
+
+#### Experience missions
+
+Each entry in `data/experience.json` accepts two optional rich-content fields:
+
+- `summary` — a one-line description rendered as inline markdown (links, emphasis…). Block-level constructs like lists are not supported here.
+- `missions` — a structured list of bullets, supporting up to 3 levels of nesting.
+
+Both can be combined; either one can be omitted.
+
+Each entry in `missions` is either:
+
+- a plain string, rendered as a simple bullet (inline markdown allowed)
+- an object `{ "text": "…", "items": [ … ] }` where `items` is another such array of strings/objects
+
+```json
+{
+  "role": "DevOps Freelance",
+  "company": "Independent",
+  "range": "Since 04/2024",
+  "missions": [
+    {
+      "text": "Built a fully Infrastructure-as-Code stack:",
+      "items": [
+        "Quarkus applications on OVH-managed Kubernetes",
+        "Infrastructure with Terraform",
+        "Cluster configuration with Ansible",
+        "Observability stack"
+      ]
+    },
+    "*Tooling:* Ansible, Terraform, Kubernetes, Helm, Grafana."
+  ]
+}
+```
+
+#### Skill levels
+
+Each entry in `data/skills.json` accepts an optional `level` (integer 0–100). When set, the skill is rendered on its own row with a horizontal progress bar instead of the inline icon+name pill. Mix and match within a group as needed:
+
+```json
+{
+  "grouping": "Infrastructure as Code",
+  "skills": [
+    { "name": "Ansible", "icon": "ansible", "level": 95 },
+    { "name": "Terraform", "icon": "terraform", "level": 50 },
+    "Packer"
+  ]
+}
+```
 
 ### Projects/Opensource
 
