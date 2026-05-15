@@ -2,13 +2,24 @@
     {
         "role": "Developer",
         "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
-        "summary": "[Development Language Technology Platform v4](https://github.com/HIT-SCIR/ltp)",
-        "range": "September 2019 - NOW"
+        "range": "September 2019 - NOW",
+        "missions": [
+            {
+                "text": "Lead developer on [LTP v4](https://github.com/HIT-SCIR/ltp):",
+                "items": [
+                    "multi-task pretrained model architecture",
+                    "REST and Python APIs",
+                    "benchmarking suite"
+                ]
+            },
+            "Mentored two junior contributors",
+            "*Tooling:* Python, PyTorch, FastAPI."
+        ]
     },
     {
         "role": "Developer",
         "company": "[Yunfutech](https://www.yunfutech.com/)",
-        "summary": "Developmet a collections of nlp tools",
+        "summary": "Developed a collection of nlp tools",
         "range": "July 2019 -  September 2019"
     },
     {

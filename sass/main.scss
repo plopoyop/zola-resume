@@ -56,7 +56,21 @@ a:hover, a:focus, a:active {
 }
 
 #content ul {
-  list-style: initial;
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0.25rem 0;
+}
+
+#content .experience-missions {
+  font-size: 0.95rem;
+}
+
+#content .experience-missions ul {
+  margin: 0.15rem 0;
+}
+
+#content .experience-missions li {
+  line-height: 1.35;
 }
 
 #content .subtitle {

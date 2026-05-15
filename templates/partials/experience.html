@@ -1,3 +1,5 @@
+{% import 'partials/_mission_list.html' as ml -%}
+
 {% macro display() %}
 {% set lang_data = load_data(path="data/experience." ~ lang ~ ".json", required=false) %}
 {% if lang_data %}
@@ -24,9 +26,16 @@
       </nav>
       <div class="is-flex is-flex-direction-column is-align-items-start">
         <h2 class="subtitle">{{ item.company | markdown(inline=true) | safe }}</h2>
+        {% if item.summary %}
         <div>
           {{ item.summary | markdown(inline=true) | safe }}
         </div>
+        {% endif %}
+        {% if item.missions %}
+        <div class="experience-missions">
+          {{ ml::mission_list(items=item.missions) }}
+        </div>
+        {% endif %}
       </div>
     </div>
     {% endfor %}

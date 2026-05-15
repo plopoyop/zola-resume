@@ -1,26 +1,38 @@
 [
-    {
-        "role": "Développeur",
-        "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
-        "summary": "[Développement de Language Technology Platform v4](https://github.com/HIT-SCIR/ltp)",
-        "range": "Septembre 2019 - aujourd'hui"
-    },
-    {
-        "role": "Développeur",
-        "company": "[Yunfutech](https://www.yunfutech.com/)",
-        "summary": "Développement d'une suite d'outils NLP",
-        "range": "Juillet 2019 - Septembre 2019"
-    },
-    {
-        "role": "Développeur",
-        "company": "[HIT Web Intellegence Lab](http://wi.hit.edu.cn/)",
-        "summary": "Implémentation de la partie anglaise et de l'outil d'administration de WI IME",
-        "range": "Juillet 2018 - Septembre 2018"
-    },
-    {
-        "role": "Développeur",
-        "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
-        "summary": "[Développement de Language Technology Platform v3](https://github.com/HIT-SCIR/ltp/tree/3.X)",
-        "range": "Septembre 2017 - Décembre 2017"
-    }
+  {
+    "role": "Développeur",
+    "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
+    "summary": "[Développement de Language Technology Platform v4](https://github.com/HIT-SCIR/ltp)",
+    "range": "Septembre 2019 - aujourd'hui",
+    "missions": [
+      {
+        "text": "Développeur principal sur [LTP v4](https://github.com/HIT-SCIR/ltp) :",
+        "items": [
+          "architecture multi-tâches à modèle pré-entraîné",
+          "API REST et Python",
+          "suite de benchmarking"
+        ]
+      },
+      "Encadrement de deux contributeurs juniors",
+      "*Outils :* Python, PyTorch, FastAPI."
+    ]
+  },
+  {
+    "role": "Développeur",
+    "company": "[Yunfutech](https://www.yunfutech.com/)",
+    "summary": "Développement d'une suite d'outils NLP",
+    "range": "Juillet 2019 - Septembre 2019"
+  },
+  {
+    "role": "Développeur",
+    "company": "[HIT Web Intellegence Lab](http://wi.hit.edu.cn/)",
+    "summary": "Implémentation de la partie anglaise et de l'outil d'administration de WI IME",
+    "range": "Juillet 2018 - Septembre 2018"
+  },
+  {
+    "role": "Développeur",
+    "company": "[HIT Social Computing and Information Retrieval Research Center](http://ir.hit.edu.cn/)",
+    "summary": "[Développement de Language Technology Platform v3](https://github.com/HIT-SCIR/ltp/tree/3.X)",
+    "range": "Septembre 2017 - Décembre 2017"
+  }
 ]

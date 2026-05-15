@@ -1,0 +1,41 @@
+{# Renders a (potentially nested) mission list.
+   `items` is an array whose entries are either:
+   - a string (markdown inline)
+   - an object {text, items} where `items` is another such array.
+   Nesting is supported up to 3 levels — deeper levels are flattened. #}
+
+{% macro mission_list(items) %}
+<ul>
+{% for entry in items %}
+  {% if entry is string %}
+  <li>{{ entry | markdown(inline=true) | safe }}</li>
+  {% else %}
+  <li>{{ entry.text | markdown(inline=true) | safe }}
+    {% if entry.items %}
+    <ul>
+    {% for sub in entry.items %}
+      {% if sub is string %}
+      <li>{{ sub | markdown(inline=true) | safe }}</li>
+      {% else %}
+      <li>{{ sub.text | markdown(inline=true) | safe }}
+        {% if sub.items %}
+        <ul>
+        {% for leaf in sub.items %}
+          {% if leaf is string %}
+          <li>{{ leaf | markdown(inline=true) | safe }}</li>
+          {% else %}
+          <li>{{ leaf.text | markdown(inline=true) | safe }}</li>
+          {% endif %}
+        {% endfor %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+    {% endif %}
+  </li>
+  {% endif %}
+{% endfor %}
+</ul>
+{% endmacro %}
